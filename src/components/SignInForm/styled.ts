@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
+  position: relative;
   padding: 50px;
   border-radius: 25px;
   background: linear-gradient(155deg, rgba(255, 255, 255, 0.2) -50%, rgba(255, 255, 255, 0.05) 80%);

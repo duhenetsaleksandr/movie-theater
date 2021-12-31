@@ -1,28 +1,30 @@
-import styled from 'styled-components';
+import styled, { ThemeProps } from 'styled-components';
+import { TTheme } from 'global-styles/theme/types';
 
-export const BasicButton = styled.button<{}>`
+export const BasicButton = styled.button<ThemeProps<TTheme>>`
   height: 50px;
   min-width: 300px;
   padding: 10px 25px;
   border-radius: 5px;
-  background-color: ${props => props.theme.colors.secondary};
   font-size: 20px;
-  color: ${props => props.theme.colors.helper};
   text-transform: capitalize;
   letter-spacing: 0.1em;
   transition: all 0.2s ease;
-
-  &:hover {
-    background-color: ${props => props.theme.colors.hover};
-  }
-
-  &:active {
-    background-color: ${props => props.theme.colors.helper};
-    color: ${props => props.theme.colors.secondary};
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    background-color: ${props => props.theme.colors.disabled};
-  }
+  ${({ theme }) => `
+    background-color: ${ theme.colors.secondary };
+    color: ${ theme.colors.helper };
+    &:hover {
+      background-color: ${ theme.colors.hover };
+    }
+    
+    &:active {
+      background-color: ${ theme.colors.helper };
+      color: ${ theme.colors.secondary };
+    }
+    
+    &:disabled {
+      cursor: not-allowed;
+      background-color: ${ theme.colors.disabled };
+    }
+  `};
 `;

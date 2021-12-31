@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyledInput, StyledLabel, ErrorMessage, TitleInput } from './styled';
-import { TInput } from './types';
+import { TInputProps } from './types';
 
 const initialState = '';
 
-const Input = ({ placeholder, onBlur, onKeyDown, error, label, name, mb, image, type }: TInput) => {
+const Input = ({ placeholder, onBlur, onKeyDown, error, label, name, mb, image, type, isClear }: TInputProps) => {
     const [ value, setValue ] = useState(initialState);
+
+    useEffect(() => {
+        if (isClear) setValue(initialState);
+    }, [isClear]);
 
     const handlerChange = (event: React.ChangeEvent<HTMLInputElement>): void => setValue(event.target.value);
 
@@ -22,7 +26,7 @@ const Input = ({ placeholder, onBlur, onKeyDown, error, label, name, mb, image, 
                 onKeyDown={onKeyDown?.bind(null, value)}
                 image={image}
             />
-            { error && <ErrorMessage>{ error }</ErrorMessage> }
+            <ErrorMessage>{ error }</ErrorMessage>
         </StyledLabel>
     );
 };

@@ -1,13 +1,12 @@
 import React from 'react';
-import { ContentContainer } from 'styled-components/global-styles-components';
-import { StyledNotFound } from './styled';
+import { StyledNotFound, Styled404, NotFoundContainer } from './styled';
 
 const NotFound = () => (
     <StyledNotFound>
-        <ContentContainer>
-            <div>404</div>
+        <NotFoundContainer>
+            <Styled404>404</Styled404>
             Page Not Found
-        </ContentContainer>
+        </NotFoundContainer>
     </StyledNotFound>
 );
 

@@ -4,6 +4,7 @@ type TColors = {
     helper: string,
     hover: string,
     disabled: string,
+    error: string,
 };
 
 export type TTheme = {

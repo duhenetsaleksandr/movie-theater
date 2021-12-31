@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from 'components/Header';
-import PageLink from "../common/PageLink/PageLink";
+import ControlLink from 'components/common/ControlLink';
 
 const SignUp = () => (
     <>
         <Header>
-            <PageLink path='/sign-in'>Sign In</PageLink>
+            <ControlLink path='/sign-in'>Sign In</ControlLink>
         </Header>
     </>
 );

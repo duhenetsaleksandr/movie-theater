@@ -2,14 +2,6 @@ import styled, { ThemeProps } from 'styled-components';
 import { TTheme } from 'global-styles/theme/types';
 
 export const StyledInput = styled.input<ThemeProps<TTheme> & { image?: string }>`
-  ${ ({ theme, image }) => `
-    border: 1px solid ${theme.colors.helper};
-    color: ${theme.colors.helper};
-    background-image: url(${image});
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 20px;
-  ` };
   width: 300px;
   height: 50px;
   margin: 5px 0;
@@ -19,30 +11,42 @@ export const StyledInput = styled.input<ThemeProps<TTheme> & { image?: string }>
   background-color: transparent;
   display: inline-block;
   letter-spacing: 0.1em;
-  &:focus {
-    ${({ theme }) => `box-shadow: 0 0 5px 0 ${theme.colors.helper};`};
-  }
   &::placeholder{
     transition: all 0.2s ease;
   }
   &:focus::placeholder {
     opacity: 0;
   }
+  ${ ({ theme, image }) => `
+    border: 1px solid ${ theme.colors.helper };
+    color: ${ theme.colors.helper };
+    background-image: url(${ image });
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    &:focus {
+      box-shadow: 0 0 5px 0 ${ theme.colors.helper };
+    }
+  `};
 `;
 
 export const TitleInput = styled.p<ThemeProps<TTheme>>`
-  ${ ({ theme }) => `color: ${theme.colors.helper}` };
   font-size: 20px;
   letter-spacing: 0.1em;
+  ${ ({ theme }) => `color: ${ theme.colors.helper }` };
 `;
 
 export const StyledLabel = styled.label<{ mb?: number }>`
   display: flex;
   flex-direction: column;
-  ${({ mb = 40 }) => `margin-bottom: ${mb}px;`};
+  ${({ mb = 20 }) => `margin-bottom: ${mb}px;`};
 `;
 
-export const ErrorMessage = styled.p`
-  color: red;
+export const ErrorMessage = styled.p<ThemeProps<TTheme>>`
+  ${({ theme }) => `color: ${ theme.colors.error };`};
   letter-spacing: 0.1em;
+  font-size: 16px;
+  line-height: 20px;
+  height: 20px;
+  font-weight: bold;
 `;

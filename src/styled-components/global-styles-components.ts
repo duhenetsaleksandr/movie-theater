@@ -54,3 +54,27 @@ export const ContentContainer = styled.div`
   padding: 0 50px;
   margin: 0 auto;
 `;
+
+export const Bubble = styled.div<{ top?: number, bottom?: number }>`
+  display: flex;
+  position: relative;
+  z-index: 2;
+  &::before,
+  &::after {
+    content: "";
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(225.82deg, #352F44 24.16%, #5C5470 87.91%);
+    position: absolute;
+  }
+  &::before {
+    ${({ bottom = -75 }) => `bottom: ${bottom}px`};
+    left: -75px;
+    z-index: -1;
+  }
+  &::after {
+    ${({ top = -75 }) => `top: ${top}px`};
+    right: -75px;
+  }
+`;

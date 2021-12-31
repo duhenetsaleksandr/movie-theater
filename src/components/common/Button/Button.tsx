@@ -1,3 +1,4 @@
+import React from 'react';
 import { TButtonProps } from './types';
 import { BasicButton } from "./styled";
 

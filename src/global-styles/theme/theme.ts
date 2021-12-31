@@ -7,5 +7,6 @@ export const darkTheme: TTheme = {
         helper: '#DBDEE5',
         hover: '#5C547099',
         disabled: '#5C547033',
+        error: '#ff2a2a',
     }
 };
