@@ -10,6 +10,8 @@ import lock from 'images/lock.svg';
 import { TInitState, TSignInFormProps } from './types';
 import { TEventTarget } from 'components/common/Input/types';
 import { isValidPassword, isValidLogin } from 'helpers/helpers';
+import { FormattedMessage, useIntl } from 'react-intl';
+import { idMessages } from 'i18n/types';
 
 const initialState: TInitState = {
     login: '',
@@ -22,6 +24,7 @@ const initialState: TInitState = {
 
 const SignInForm = ({ onSubmit }: TSignInFormProps) => {
     const [ state, setState ] = useState(initialState);
+    const intl = useIntl();
 
     useEffect(() => {
         const { status: loginStatus, message: loginMessage } = isValidLogin(state.login);
@@ -66,8 +69,8 @@ const SignInForm = ({ onSubmit }: TSignInFormProps) => {
                         <Input
                             type={InputTypes.text}
                             name='login'
-                            label='Login'
-                            placeholder='Enter your login'
+                            label={intl.formatMessage({ id: idMessages.loginLabel })}
+                            placeholder={intl.formatMessage({ id: idMessages.loginPlaceholder })}
                             image={login}
                             onBlur={handlerBlurInput}
                             onKeyDown={handlerKeyDownInput}
@@ -77,15 +80,17 @@ const SignInForm = ({ onSubmit }: TSignInFormProps) => {
                         <Input
                             type={InputTypes.password}
                             name='password'
-                            label='Password'
-                            placeholder='Enter your password'
+                            label={intl.formatMessage({ id: idMessages.passwordLabel })}
+                            placeholder={intl.formatMessage({ id: idMessages.passwordPlaceholder })}
                             image={lock}
                             onBlur={handlerBlurInput}
                             onKeyDown={handlerKeyDownInput}
                             isClear={state.isClear}
                             error={state.passwordError}
                         />
-                        <Button type={ButtonTypes.submit}>Sign In</Button>
+                        <Button type={ButtonTypes.submit}>
+                            <FormattedMessage id={idMessages.signIn} />
+                        </Button>
                     </StyledForm>
                 </Bubble>
             </WrapperForm>

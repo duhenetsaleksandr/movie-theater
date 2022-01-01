@@ -8,7 +8,7 @@ export enum ButtonTypes {
 
 export type TButtonProps = {
     type: ButtonTypes,
-    children: string,
+    children: JSX.Element,
     disabled?: boolean,
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
