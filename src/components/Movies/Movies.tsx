@@ -9,7 +9,7 @@ const Movies = ({ logOut }: TMoviesProps) => (
     <>
         <Header>
             <ControlLink onClick={logOut} path='/sign-in'>
-                <FormattedMessage id={idMessages.signIn}/>
+                <FormattedMessage id={idMessages.logOut}/>
             </ControlLink>
         </Header>
     </>
