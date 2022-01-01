@@ -5,7 +5,6 @@ import { TSignInData } from 'redux/actions/auth/types';
 export type TAuthState = {
     id: number | null,
     token: string | null,
-    isLoading: boolean,
 };
 
 export type TActionAuth = Required<TAction<AUTH_ACTIONS, TSignInData>>;

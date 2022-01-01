@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { TStore } from 'redux/reducers/types';
 import { TSignInBody } from 'redux/actions/auth/types';
 import { fetchSignIn } from 'redux/thunks/auth/authThunks';
-import { selectAuth } from 'redux/selectors/auth/authSelectors';
+import { selectToken } from 'redux/selectors/auth/authSelectors';
 import { TThunkDispatchSignIn } from './types';
+import { selectIsLoading } from 'redux/selectors/app/appSelectors';
 
 const mapStateToProps = (store: TStore) => ({
-    auth: selectAuth(store),
+    token: selectToken(store),
+    isLoading: selectIsLoading(store),
 });
 
 const mapDispatchToProps = (dispatch: TThunkDispatchSignIn) => ({

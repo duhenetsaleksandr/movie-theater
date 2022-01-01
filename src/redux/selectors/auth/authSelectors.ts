@@ -1,3 +1,3 @@
 import { TStore } from 'redux/reducers/types';
 
-export const selectAuth = (store: TStore) => store.auth;
+export const selectToken = (store: TStore): string | null => store.auth.token;

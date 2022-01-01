@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from 'components/Header';
 import ControlLink from 'components/common/ControlLink';
@@ -6,16 +6,14 @@ import SignInForm from 'components/SignInForm';
 import Loader from 'components/common/Loader';
 import { TSignInProps } from './types';
 
-const SignIn = ({ fetchSignIn, auth: { isLoading, token } }: TSignInProps) => {
+const SignIn = ({ fetchSignIn, token, isLoading }: TSignInProps) => {
     const navigate = useNavigate();
 
     useEffect(() => {
         if (token ) {
-            setTimeout(() => {
-                navigate('/movies')
-            }, 1500);
+            setTimeout(() => navigate('/movies'), 1500);
         }
-    }, [ token ]);
+    }, [ navigate, token ]);
 
     return (
         <>

@@ -5,5 +5,5 @@ const initialState: TMoviesState = {
 };
 
 export const moviesReducer = (state: TMoviesState = initialState): TMoviesState => {
-    return state;
+    return { ...state };
 };

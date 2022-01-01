@@ -3,7 +3,8 @@ import { TTheme } from 'global-styles/theme/types';
 
 export const GlobalStyle = createGlobalStyle<ThemeProps<TTheme>>`
   body {  
-    ${({ theme }) => `background-color: ${theme.colors.primary}`};
+    ${({ theme }) => `background-color: ${ theme.colors.primary }`};
+    overflow: hidden;
   }
   
   #root {
